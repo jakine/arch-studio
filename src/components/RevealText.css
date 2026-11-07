@@ -1,0 +1,5 @@
+/* Give descenders room inside the clipping mask at tight line-heights */
+.reveal-text .reveal-line-mask {
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}

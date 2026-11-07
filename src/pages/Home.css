@@ -1,0 +1,125 @@
+/* ============================================
+   HOME PAGE
+   ============================================ */
+
+.home-label {
+  align-self: start;
+}
+
+.home-label span {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================
+   STATEMENT
+   ============================================ */
+
+.home-statement {
+  padding-block: var(--section-space);
+}
+
+.home-statement .home-label {
+  grid-column: 1 / -1;
+  margin-bottom: 1.5rem;
+}
+
+.home-statement-text {
+  grid-column: 1 / -1;
+}
+
+.home-statement-cta {
+  grid-column: 1 / -1;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .home-statement .home-label {
+    grid-column: 1 / span 3;
+    margin-bottom: 0;
+    padding-top: 0.6em;
+  }
+
+  .home-statement-text {
+    grid-column: 4 / span 9;
+  }
+
+  .home-statement-cta {
+    grid-column: 4 / span 9;
+  }
+}
+
+/* ============================================
+   SECTION HEAD (label, title, link)
+   ============================================ */
+
+.home-section-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  row-gap: 1rem;
+  margin-bottom: clamp(2.5rem, 6vw, 5rem);
+}
+
+.home-section-head .home-label {
+  grid-column: 1 / -1;
+}
+
+.home-section-link {
+  white-space: nowrap;
+}
+
+/* ============================================
+   FEATURED GRID
+   ============================================ */
+
+.home-featured {
+  padding-bottom: var(--section-space);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: 3.5rem;
+}
+
+.featured-item {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .featured-grid {
+    row-gap: 0;
+  }
+
+  .featured-item-1 {
+    grid-column: 1 / span 7;
+  }
+
+  .featured-item-2 {
+    grid-column: 9 / span 4;
+    margin-top: 28vh;
+  }
+
+  .featured-item-3 {
+    grid-column: 2 / span 4;
+    margin-top: -6vh;
+  }
+
+  .featured-item-4 {
+    grid-column: 7 / span 6;
+    margin-top: 18vh;
+  }
+}
+
+/* ============================================
+   FULL-BLEED IMAGE BREAK
+   ============================================ */
+
+.home-image-break {
+  height: 110svh;
+}
+
+.home-image-break-media {
+  height: 100%;
+}

@@ -1,0 +1,43 @@
+.contact-cta {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--section-space);
+}
+
+.contact-cta-blob {
+  position: absolute;
+  right: -8vw;
+  top: 50%;
+  width: min(52vw, 40rem);
+  transform: translateY(-50%);
+  opacity: 0.16;
+}
+
+.contact-cta-inner {
+  position: relative;
+}
+
+.contact-cta-title {
+  max-width: 14ch;
+  margin-top: 1.5rem;
+}
+
+.contact-cta-text {
+  max-width: 30rem;
+  margin-top: 1.5rem;
+  color: var(--fg-muted);
+}
+
+.contact-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem 3rem;
+  margin-top: 3rem;
+}
+
+.contact-cta-email {
+  font-size: var(--fs-md);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.15rem;
+}

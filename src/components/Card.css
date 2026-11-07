@@ -1,0 +1,87 @@
+.card {
+  display: block;
+  color: inherit;
+}
+
+.card-media {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-reveal {
+  position: absolute;
+  inset: 0;
+}
+
+.card-media .responsive-image-img {
+  transition: transform 1.2s var(--ease-out), opacity 0.6s var(--ease-out);
+}
+
+.card:hover .card-media .responsive-image-img {
+  transform: scale(1.04);
+}
+
+/* ma-kr style: dark green wash with the project line on hover */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  background: color-mix(in srgb, var(--color-green) 82%, transparent);
+  color: var(--color-cream);
+  opacity: 0;
+  transition: opacity 0.45s var(--ease-out);
+}
+
+.card:hover .card-overlay,
+.card:focus-visible .card-overlay {
+  opacity: 1;
+}
+
+.card-overlay-title {
+  max-width: 22rem;
+  font-size: var(--fs-md);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  transform: translateY(0.75rem);
+  transition: transform 0.6s var(--ease-out);
+}
+
+.card:hover .card-overlay-title {
+  transform: none;
+}
+
+.card-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1rem;
+  padding-top: 0.9rem;
+}
+
+.card-category {
+  grid-column: 1 / -1;
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  color: var(--fg-muted);
+}
+
+.card-name {
+  font-size: var(--fs-md);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-top: 0.2rem;
+}
+
+.card-year {
+  align-self: end;
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (hover: none) {
+  .card-overlay {
+    display: none;
+  }
+}

@@ -1,0 +1,89 @@
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: #0e0f0e;
+  color: var(--color-cream);
+  touch-action: pan-y;
+}
+
+.lightbox-bar {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem var(--page-gutter);
+  font-size: var(--fs-sm);
+}
+
+.lightbox-counter {
+  font-variant-numeric: tabular-nums;
+}
+
+.lightbox-title {
+  text-transform: lowercase;
+}
+
+.lightbox-title::first-letter {
+  text-transform: uppercase;
+}
+
+.lightbox-close {
+  justify-self: end;
+  font-weight: 500;
+}
+
+.lightbox-stage {
+  position: relative;
+  margin: 0 var(--page-gutter) var(--page-gutter);
+}
+
+.lightbox-image {
+  background: transparent;
+  animation: lightbox-image-in 0.7s var(--ease-out) both;
+}
+
+.lightbox-image::before {
+  display: none;
+}
+
+.responsive-image-img.is-contained {
+  object-fit: contain;
+}
+
+@keyframes lightbox-image-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 4rem;
+  bottom: 0;
+  z-index: 1;
+  width: 50%;
+}
+
+.lightbox-nav.is-prev {
+  left: 0;
+}
+
+.lightbox-nav.is-next {
+  right: 0;
+}
+
+.lightbox-nav:focus-visible {
+  outline-offset: -0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-image {
+    animation: none;
+  }
+}

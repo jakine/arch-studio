@@ -1,0 +1,18 @@
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Same as the intro's curtain, shown while its code loads */
+.intro-placeholder {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: var(--color-green);
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+}

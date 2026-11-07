@@ -1,0 +1,38 @@
+.copy-link {
+  position: relative;
+  display: inline-block;
+}
+
+/* Small pill above the address: "Copy email" / "Copy number", then "Copied" */
+.copy-link-tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.5rem);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 0.35rem);
+  transition: opacity 0.25s ease, transform 0.4s var(--ease-out);
+}
+
+.copy-link:hover .copy-link-tip,
+.copy-link:focus-visible .copy-link-tip,
+.copy-link.is-copied .copy-link-tip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* On touch the link opens the mail or phone app instead */
+@media (hover: none) {
+  .copy-link-tip {
+    display: none;
+  }
+}

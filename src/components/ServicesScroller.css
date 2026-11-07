@@ -1,0 +1,160 @@
+.process {
+  position: relative;
+  height: 100svh;
+  color: var(--fg);
+  overflow: hidden;
+}
+
+.process-inner {
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  grid-template-rows: auto 1fr auto;
+  column-gap: var(--grid-gap);
+  padding-top: calc(var(--header-height) + 1.5rem);
+  padding-bottom: 2rem;
+}
+
+.process-top {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.process-counter {
+  font-size: var(--fs-md);
+  font-variant-numeric: tabular-nums;
+}
+
+.process-visual {
+  grid-column: 6 / -1;
+  grid-row: 1 / -1;
+  align-self: center;
+  justify-self: center;
+  width: min(100%, 72vh);
+}
+
+/* Full width: long titles ("Konstruksioni") may run over the blob */
+.process-copy {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  align-self: end;
+  position: relative;
+  z-index: 1;
+}
+
+/* Titles roll through a one-line window */
+.process-titles {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  font-weight: inherit;
+}
+
+.process-title {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  font-size: clamp(2.75rem, 1rem + 8.5vw, 10rem);
+}
+
+.process-texts {
+  display: grid;
+  margin-top: 1.5rem;
+  max-width: 34rem;
+}
+
+.process-text {
+  grid-area: 1 / 1;
+}
+
+.process-bottom {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.process-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.process-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  transition: background-color 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+
+.process-dot.is-active {
+  background: currentColor;
+  transform: scale(1.25);
+}
+
+@media (max-width: 768px) {
+  .process-visual {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    align-self: start;
+    width: min(78vw, 42vh);
+    margin-top: 1rem;
+  }
+
+  .process-copy {
+    grid-column: 1 / -1;
+  }
+
+  .process-text {
+    font-size: var(--fs-base);
+  }
+}
+
+/* ============================================
+   STATIC VERSION (reduced motion)
+   ============================================ */
+
+.process-static {
+  padding-block: var(--section-space);
+}
+
+.process-static-step {
+  display: grid;
+  grid-template-columns: minmax(8rem, 16rem) 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding-block: 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.process-static-index {
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  margin-bottom: 0.5rem;
+}
+
+.process-static-text {
+  margin-top: 1rem;
+  max-width: 36rem;
+}
+
+.process-static .process-link {
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .process-static-step {
+    grid-template-columns: 1fr;
+  }
+
+  .process-static-blob {
+    width: 60%;
+  }
+}

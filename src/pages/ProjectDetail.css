@@ -1,0 +1,217 @@
+/* ============================================
+   PROJECT DETAIL – HERO
+   ============================================ */
+
+.pd-hero {
+  position: relative;
+  height: 100svh;
+  min-height: 34rem;
+  color: #fff;
+  overflow: hidden;
+}
+
+.pd-hero-media {
+  position: absolute;
+  inset: 0;
+}
+
+.pd-hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.12) 40%, rgba(0, 0, 0, 0) 65%);
+}
+
+.pd-hero-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: clamp(1.5rem, 4vh, 3rem);
+}
+
+.pd-back {
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.pd-hero-category {
+  font-size: var(--fs-base);
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.pd-title {
+  max-width: 14ch;
+}
+
+/* ============================================
+   INTRO: FACTS + STORY
+   ============================================ */
+
+.pd-intro {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: 3rem;
+  padding-block: var(--section-space);
+}
+
+.pd-facts {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem var(--grid-gap);
+  align-content: start;
+}
+
+.pd-fact {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.pd-fact dt {
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+}
+
+.pd-fact dd {
+  margin-top: 0.3rem;
+  font-size: var(--fs-sm);
+}
+
+.pd-story {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 900px) {
+  .pd-facts {
+    grid-column: 1 / span 4;
+    grid-template-columns: 1fr;
+  }
+
+  .pd-story {
+    grid-column: 6 / -1;
+  }
+}
+
+.pd-body {
+  margin-top: 2rem;
+  max-width: 40rem;
+  color: var(--fg-muted);
+}
+
+.pd-services {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.pd-services ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.pd-services li {
+  padding: 0.3rem 0.9rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+}
+
+/* ============================================
+   GALLERY
+   ============================================ */
+
+.pd-gallery {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: clamp(2rem, 6vw, 5rem);
+  padding-bottom: var(--section-space);
+}
+
+.pd-shot {
+  display: block;
+  grid-column: 1 / -1;
+  text-align: left;
+}
+
+.pd-shot-media {
+  aspect-ratio: 4 / 5;
+}
+
+.pd-shot.is-wide .pd-shot-media {
+  aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 768px) {
+  .pd-shot.is-left {
+    grid-column: 1 / span 5;
+  }
+
+  .pd-shot.is-right {
+    grid-column: 7 / span 6;
+    margin-top: 22vh;
+  }
+}
+
+.pd-shot .responsive-image-img {
+  transition: transform 1.2s var(--ease-out), opacity 0.6s var(--ease-out);
+}
+
+.pd-shot:hover .responsive-image-img {
+  transform: scale(1.03);
+}
+
+/* ============================================
+   NEXT PROJECT
+   ============================================ */
+
+.pd-next-link {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  padding-block: var(--section-space);
+}
+
+.pd-next-name {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.pd-next-media {
+  position: absolute;
+  right: var(--page-gutter);
+  top: 50%;
+  width: clamp(12rem, 26vw, 24rem);
+  aspect-ratio: 4 / 5;
+  transform: translateY(-50%) scale(0.9);
+  clip-path: inset(100% 0% 0% 0%);
+  transition: clip-path 0.9s var(--ease-out), transform 1.2s var(--ease-out);
+}
+
+.pd-next-link:hover .pd-next-media,
+.pd-next-link:focus-visible .pd-next-media {
+  clip-path: inset(0% 0% 0% 0%);
+  transform: translateY(-50%) scale(1);
+}
+
+.pd-next-link:hover .pd-next-name {
+  transform: translateX(clamp(0.5rem, 2vw, 2rem));
+}
+
+@media (hover: none) {
+  .pd-next-media {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    clip-path: none;
+    width: min(70vw, 20rem);
+  }
+}

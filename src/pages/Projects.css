@@ -1,0 +1,146 @@
+/* ============================================
+   PROJECTS PAGE
+   ============================================ */
+
+.projects-head {
+  padding-top: calc(var(--header-height) + clamp(3rem, 8vw, 7rem));
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.projects-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.1em;
+  margin-top: 1rem;
+}
+
+.projects-title h1 {
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+
+.projects-title-count {
+  font-size: 0.18em;
+  letter-spacing: 0;
+  margin-top: 0.4em;
+  color: var(--fg-muted);
+}
+
+.projects-intro-row {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: 2.5rem;
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.projects-intro {
+  grid-column: 1 / -1;
+  max-width: 34rem;
+}
+
+.projects-stats {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+@media (min-width: 900px) {
+  .projects-intro {
+    grid-column: 1 / span 6;
+  }
+
+  .projects-stats {
+    grid-column: 8 / -1;
+    justify-content: flex-end;
+  }
+}
+
+.stat-number {
+  font-size: var(--fs-xl);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-tight);
+}
+
+.stat-label {
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  margin-top: 0.4rem;
+}
+
+/* ============================================
+   FILTERS
+   ============================================ */
+
+.projects-body {
+  padding-bottom: var(--section-space);
+}
+
+.projects-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  padding-block: 1rem;
+  border-top: 1px solid var(--line);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.filter-button {
+  position: relative;
+  padding-block: 0.4rem;
+  font-size: var(--fs-md);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--fg-muted);
+  transition: color 0.3s var(--ease-out);
+}
+
+.filter-button sup {
+  font-size: 0.5em;
+  margin-left: 0.2em;
+}
+
+/* Underline grows in from the left on the active filter */
+.filter-button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.filter-button:hover,
+.filter-button.is-active {
+  color: var(--fg);
+}
+
+.filter-button.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ============================================
+   GRID
+   ============================================ */
+
+.projects-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  gap: clamp(2.5rem, 5vw, 4rem) var(--grid-gap);
+}
+
+.projects-item.is-hidden {
+  display: none;
+}
+
+.no-projects {
+  padding-block: 4rem;
+  color: var(--fg-muted);
+}

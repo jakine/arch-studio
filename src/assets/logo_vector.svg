@@ -1,0 +1,8 @@
+<svg viewBox="0 0 1032 240" xmlns="http://www.w3.org/2000/svg" aria-label="ARCH Logo">
+  <g fill="currentColor">
+    <path transform="translate(0 0)" d="M0 120A120 120 0 0 1 240 120V232A8 8 0 0 1 232 240H152V162A32 32 0 0 0 88 162V240H8A8 8 0 0 1 0 232Z"/>
+    <path transform="translate(264 0)" d="M8 0H168A72 72 0 0 1 168 144L240 240H168L96 144V232A8 8 0 0 1 88 240H8A8 8 0 0 1 0 232V8A8 8 0 0 1 8 0Z"/>
+    <path transform="translate(528 0)" d="M235.65 88A120 120 0 1 0 235.65 152H140A32 32 0 0 1 140 88Z"/>
+    <path transform="translate(792 0)" d="M8 0H88V56A32 32 0 0 0 152 56V0H232A8 8 0 0 1 240 8V232A8 8 0 0 1 232 240H152V184A32 32 0 0 0 88 184V240H8A8 8 0 0 1 0 232V8A8 8 0 0 1 8 0Z"/>
+  </g>
+</svg>

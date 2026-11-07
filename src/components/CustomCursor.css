@@ -1,0 +1,128 @@
+/* Only hide the system cursor once ours is mounted (mouse/trackpad devices) */
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+html.has-custom-cursor :is(input, textarea, select) {
+  cursor: text !important;
+}
+
+/* The blend mode must live on the outermost fixed element, or it only blends
+   with its own (transparent) stacking context */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+.cursor[data-visible='false'],
+.cursor.is-hidden {
+  opacity: 0;
+}
+
+/* Only the plain dot is negative: rings and icons draw in their own colours */
+.cursor:not([data-state='default'], [data-state='hide']) {
+  mix-blend-mode: normal;
+}
+
+.cursor-disc {
+  --size: 30px;
+  --press: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  /* Same colour as the fill, so the dot looks solid until the fill fades out */
+  border: 1.5px solid #fff;
+  background: #fff;
+  color: #121212;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%) scale(var(--press));
+  transition:
+    width 0.5s var(--ease-out),
+    height 0.5s var(--ease-out),
+    transform 0.35s var(--ease-out),
+    background-color 0.3s var(--ease-out);
+}
+
+.cursor[data-pressed='true'] .cursor-disc {
+  --press: 0.85;
+}
+
+/* Over links: a hollow ring in the colour of the link text (set by
+   CustomCursor), so it reads on light sections, dark ones and photos */
+.cursor[data-state='link'] .cursor-disc {
+  --size: 56px;
+  background: transparent;
+  border-color: var(--ring);
+}
+
+.cursor[data-state='hide'] .cursor-disc {
+  --size: 0px;
+  border-width: 0;
+}
+
+/* ============================================
+   ICON STATES – solid light disc, no blend, same in both themes
+   ============================================ */
+
+.cursor:is([data-state='prev'], [data-state='next'], [data-state='open'], [data-state='zoom']) .cursor-disc {
+  --size: 60px;
+  background: #f3f1ec;
+  border-color: transparent;
+}
+
+/* Project cards: a larger cream ring with ↗. It sits over the dark hover wash,
+   so the photo underneath never tints it */
+.cursor[data-state='ring'] .cursor-disc {
+  --size: 96px;
+  background: transparent;
+  border-color: var(--color-cream);
+  color: var(--color-cream);
+}
+
+.cursor-icon {
+  grid-area: 1 / 1;
+  width: 1.75rem;
+  height: 1.75rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  transform: scale(0.4) rotate(var(--turn, 0deg));
+  transition: opacity 0.25s ease, transform 0.55s var(--ease-out);
+}
+
+/* One arrow, turned to point where the click goes */
+.cursor[data-state='next'] .cursor-arrow,
+.cursor[data-state='prev'] .cursor-arrow,
+.cursor[data-state='open'] .cursor-arrow,
+.cursor[data-state='ring'] .cursor-arrow,
+.cursor[data-state='zoom'] .cursor-plus {
+  opacity: 1;
+  transform: scale(1) rotate(var(--turn, 0deg));
+}
+
+.cursor[data-state='prev'] .cursor-arrow {
+  --turn: 180deg;
+}
+
+.cursor:is([data-state='open'], [data-state='ring']) .cursor-arrow {
+  --turn: -45deg;
+}
+
+.cursor[data-state='ring'] .cursor-arrow {
+  width: 1.6rem;
+  height: 1.6rem;
+  stroke-width: 2;
+}

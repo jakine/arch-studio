@@ -1,0 +1,208 @@
+/* ============================================
+   ABOUT PAGE
+   ============================================ */
+
+.about-muted {
+  color: var(--fg-muted);
+}
+
+.about-label {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.about-label span,
+.about-index {
+  font-variant-numeric: tabular-nums;
+}
+
+.about-hero {
+  padding-top: calc(var(--header-height) + clamp(3rem, 8vw, 7rem));
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.about-tagline {
+  max-width: 16ch;
+  margin-top: 1.5rem;
+}
+
+.about-hero-image {
+  height: 85svh;
+  padding-inline: var(--page-gutter);
+}
+
+.about-hero-media {
+  height: 100%;
+}
+
+/* ============================================
+   STORY
+   ============================================ */
+
+.about-story {
+  padding-block: var(--section-space);
+}
+
+.about-story .about-label {
+  grid-column: 1 / -1;
+}
+
+.about-story-text {
+  grid-column: 1 / -1;
+}
+
+.about-story-text .about-muted {
+  margin-top: 2rem;
+  max-width: 40rem;
+}
+
+@media (min-width: 900px) {
+  .about-story .about-label {
+    grid-column: 1 / span 3;
+    padding-top: 0.6em;
+  }
+
+  .about-story-text {
+    grid-column: 4 / -1;
+  }
+}
+
+/* ============================================
+   STATS
+   ============================================ */
+
+.about-stats {
+  padding-block: clamp(4rem, 9vw, 8rem);
+}
+
+.about-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 2rem var(--grid-gap);
+  margin-top: 2.5rem;
+}
+
+.about-stats .stat-number {
+  font-size: var(--fs-display);
+  font-weight: 400;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  font-variant-numeric: tabular-nums;
+}
+
+.about-stats .stat-label {
+  margin-top: 1rem;
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+}
+
+/* ============================================
+   APPROACH
+   ============================================ */
+
+.about-approach {
+  padding-block: var(--section-space);
+}
+
+.about-approach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: clamp(2.5rem, 5vw, 4rem) var(--grid-gap);
+  list-style: none;
+}
+
+.about-approach-item {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.about-index {
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+}
+
+.about-approach-item .about-muted {
+  max-width: 30rem;
+}
+
+/* ============================================
+   WHAT WE DO (media + text)
+   ============================================ */
+
+.about-work {
+  padding-block: var(--section-space);
+}
+
+.about-media-text {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: 2rem;
+  align-items: end;
+}
+
+.about-media-text + .about-media-text {
+  margin-top: clamp(4rem, 10vw, 9rem);
+}
+
+.about-media-text-image {
+  grid-column: 1 / -1;
+  aspect-ratio: 4 / 3;
+}
+
+.about-media-text-body {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .about-media-text-image {
+    grid-column: 1 / span 7;
+  }
+
+  .about-media-text-body {
+    grid-column: 9 / span 4;
+  }
+
+  .about-media-text.is-reversed .about-media-text-image {
+    grid-column: 6 / span 7;
+    grid-row: 1;
+  }
+
+  .about-media-text.is-reversed .about-media-text-body {
+    grid-column: 1 / span 4;
+    grid-row: 1;
+  }
+}
+
+/* ============================================
+   VALUES
+   ============================================ */
+
+.about-values {
+  padding-block: var(--section-space);
+}
+
+.about-values-list {
+  list-style: none;
+}
+
+.about-value {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  padding-block: clamp(1.25rem, 3vw, 2rem);
+}
+
+@media (min-width: 900px) {
+  .about-value {
+    grid-template-columns: 5fr 7fr;
+    align-items: baseline;
+  }
+
+  .about-value .about-muted {
+    max-width: 34rem;
+  }
+}

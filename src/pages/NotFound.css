@@ -1,0 +1,36 @@
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8rem var(--page-gutter, 2rem) 4rem;
+  color: var(--fg);
+}
+
+.not-found-code {
+  font-size: clamp(6rem, 22vw, 18rem);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+}
+
+.not-found-title {
+  margin-top: 2rem;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.not-found-message {
+  margin-top: 0.75rem;
+  max-width: 32rem;
+  opacity: 0.7;
+}
+
+.not-found-link {
+  margin-top: 2rem;
+  color: inherit;
+  font-size: 1.125rem;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}

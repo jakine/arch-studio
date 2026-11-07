@@ -1,0 +1,249 @@
+/* ============================================
+   SERVICES PAGE
+   ============================================ */
+
+.services-hero {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: end;
+  min-height: 92svh;
+  padding-top: calc(var(--header-height) + 3rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.services-hero-copy {
+  grid-column: 1 / -1;
+  position: relative;
+  z-index: 1;
+}
+
+.services-title {
+  max-width: 14ch;
+  margin-top: 1.5rem;
+}
+
+.services-subtitle {
+  max-width: 34rem;
+  margin-top: 2rem;
+  color: var(--fg-muted);
+}
+
+.services-hero-blob {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: end;
+  align-self: start;
+  width: min(70vw, 34rem);
+  opacity: 0.9;
+}
+
+@media (min-width: 900px) {
+  .services-hero-copy {
+    grid-column: 1 / span 8;
+    grid-row: 1;
+  }
+
+  .services-hero-blob {
+    grid-column: 8 / -1;
+    align-self: center;
+  }
+}
+
+/* ============================================
+   PILLARS
+   ============================================ */
+
+.services-pillars-label {
+  display: block;
+  padding-bottom: 2rem;
+}
+
+.services-pillar {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: 2rem;
+  align-items: center;
+  padding-block: clamp(4rem, 10vw, 9rem);
+}
+
+.services-pillar-visual {
+  grid-column: 1 / -1;
+  width: min(80vw, 30rem);
+}
+
+.services-pillar-body {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 900px) {
+  .services-pillar-visual {
+    grid-column: 1 / span 5;
+  }
+
+  .services-pillar-body {
+    grid-column: 7 / -1;
+  }
+}
+
+.services-pillar-index {
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-muted);
+  margin-bottom: 1rem;
+}
+
+/* Sized for the longest title ("Konstruksioni") to fit its column */
+.services-pillar-title {
+  font-size: clamp(2.75rem, 1rem + 5vw, 6.5rem);
+  font-weight: 400;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+
+.services-pillar-text {
+  max-width: 34rem;
+  margin-top: 1.5rem;
+}
+
+.services-pillar-includes {
+  margin-top: 2.5rem;
+}
+
+.services-pillar-includes ul {
+  margin-top: 1rem;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.services-pillar-includes li {
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ============================================
+   PROCESS
+   ============================================ */
+
+.services-process {
+  padding-block: var(--section-space);
+}
+
+.services-process-inner {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: 3rem;
+}
+
+.services-process-head {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+}
+
+.services-process-intro {
+  max-width: 28rem;
+  color: var(--fg-muted);
+}
+
+.services-process-steps {
+  grid-column: 1 / -1;
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.services-process-list {
+  display: grid;
+  gap: clamp(3rem, 7vw, 6rem);
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .services-process-head {
+    grid-column: 1 / span 5;
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
+  }
+
+  .services-process-steps {
+    grid-column: 7 / -1;
+  }
+}
+
+.services-process-line {
+  position: absolute;
+  left: 0.4rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background: var(--line);
+}
+
+.services-process-line-fill {
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  transform-origin: top;
+}
+
+.services-process-step {
+  position: relative;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.services-process-step::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem;
+  top: 0.35rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  background: var(--bg);
+}
+
+.services-process-number {
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-muted);
+}
+
+.services-process-step p {
+  max-width: 34rem;
+  color: var(--fg-muted);
+}
+
+/* ============================================
+   WORK
+   ============================================ */
+
+.services-work {
+  padding-bottom: var(--section-space);
+}
+
+.services-work-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  row-gap: 1rem;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.services-work-head .eyebrow {
+  grid-column: 1 / -1;
+}
+
+.services-work-link {
+  white-space: nowrap;
+}
+
+.services-work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 3rem var(--grid-gap);
+}
